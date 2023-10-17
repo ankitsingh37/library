@@ -1,12 +1,16 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book{
+    constructor(title, author,pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    toggleRead(){
+        this.read = !this.read;
+    }
 }
-
 function addBookToLibrary() {
   let title = document.querySelector("#title").value;
   let author = document.querySelector("#author").value;
@@ -20,9 +24,7 @@ function removeBook(index){
     myLibrary.splice(index,1);
     render();
 }
-Book.prototype.toggleRead = function(){
-    this.read = !this.read;
-}
+
 function toggleRead(index){
     myLibrary[index].toggleRead();
     render();
